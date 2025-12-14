@@ -1,0 +1,58 @@
+@import '@fontsource/poppins/400.css';
+@import '@fontsource/poppins/500.css';
+@import '@fontsource/poppins/700.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    /* Notre nouvelle couleur d'accentuation principale */
+    --accent-color: #3b82f6; /* Un bleu pur et moderne */
+}
+
+body {
+    /* Fond : Un dégradé radial très profond, presque noir, avec une pointe de bleu nuit au centre */
+    background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 100%);
+    /* Une animation très lente et subtile pour que le fond ne soit pas mort */
+    animation: deep-breathing 20s ease-in-out infinite alternate;
+    color: #e2e8f0; /* Blanc cassé pour moins fatiguer les yeux */
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+@keyframes deep-breathing {
+    0% { background-position: 50% 0%; background-size: 100% 100%; }
+    100% { background-size: 120% 120%; }
+}
+
+/* STYLE ÉPURÉ : "Surface" au lieu de "Glass" */
+.glass-card {
+    /* Fond sombre très légèrement transparent */
+    background: rgba(30, 41, 59, 0.7); 
+    /* Flou d'arrière-plan plus léger */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    /* Bordure très fine et subtile */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px; /* Arrondis un peu moins prononcés */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.glass-input {
+     background: rgba(15, 23, 42, 0.8); /* Plus foncé */
+     border: 1px solid rgba(255, 255, 255, 0.05);
+     color: white;
+     transition: all 0.2s ease;
+}
+
+/* Quand on clique dans l'input, la bordure devient bleue */
+.glass-input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+    outline: none;
+}
+
+/* Custom Scrollbar minimaliste */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
