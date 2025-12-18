@@ -1,12 +1,39 @@
 {
   "avatars": [
     "/avatars/alicia.jpg",
+    "/avatars/alicia2.png",
+    "/avatars/allerLouna.png",
     "/avatars/bob.jpg",
-    "/avatars/theodora.jpg"
+    "/avatars/brim.jpg",
+    "/avatars/Capture d'écran 2025-05-23 204658.png",
+    "/avatars/charlixcx.jpg",
+    "/avatars/coeur.jpg",
+    "/avatars/dodo.png",
+    "/avatars/edsheeran.jpg",
+    "/avatars/franck.jpg",
+    "/avatars/garen.jpg",
+    "/avatars/goat.png",
+    "/avatars/groschat.png",
+    "/avatars/gwen_Louna.png",
+    "/avatars/IMG_0536.jpg",
+    "/avatars/IMG_0561.png",
+    "/avatars/IMG_0822.png",
+    "/avatars/IMG_0895.png",
+    "/avatars/IMG_0945.png",
+    "/avatars/jojo.png",
+    "/avatars/lapin.jpg",
+    "/avatars/Louna.png",
+    "/avatars/miko.jpg",
+    "/avatars/miku.jpg",
+    "/avatars/Sans_titre.png",
+    "/avatars/sukuna_et_peppa_pig.png",
+    "/avatars/theodora.jpg",
+    "/avatars/tortue_qui_fait_peur_wlh.png",
+    "/avatars/totoro.png"
   ],
   "songs": [
     {
-      "videoId": "loc_0_1766068148383",
+      "videoId": "loc_0_1766069771951",
       "title": "Alicia witt remix de salopard en feat avec Artemas et ARTR",
       "thumbnail": "/avatars/avatar1.png",
       "source": "local",
@@ -14,7 +41,7 @@
       "channel": "Local Library"
     },
     {
-      "videoId": "loc_1_1766068148383",
+      "videoId": "loc_1_1766069771951",
       "title": "In the end",
       "thumbnail": "/avatars/avatar1.png",
       "source": "local",
@@ -22,7 +49,7 @@
       "channel": "Local Library"
     },
     {
-      "videoId": "loc_2_1766068148383",
+      "videoId": "loc_2_1766069771951",
       "title": "LAMANO remix de salopard",
       "thumbnail": "/avatars/avatar1.png",
       "source": "local",
@@ -30,7 +57,7 @@
       "channel": "Local Library"
     },
     {
-      "videoId": "loc_3_1766068148383",
+      "videoId": "loc_3_1766069771951",
       "title": "Linkin park n1",
       "thumbnail": "/avatars/avatar1.png",
       "source": "local",
@@ -38,7 +65,7 @@
       "channel": "Local Library"
     },
     {
-      "videoId": "loc_4_1766068148383",
+      "videoId": "loc_4_1766069771951",
       "title": "linkin park",
       "thumbnail": "/avatars/avatar1.png",
       "source": "local",
@@ -46,7 +73,7 @@
       "channel": "Local Library"
     },
     {
-      "videoId": "loc_5_1766068148383",
+      "videoId": "loc_5_1766069771951",
       "title": "Miskine remix de salopard",
       "thumbnail": "/avatars/avatar1.png",
       "source": "local",
@@ -54,7 +81,7 @@
       "channel": "Local Library"
     },
     {
-      "videoId": "loc_6_1766068148383",
+      "videoId": "loc_6_1766069771951",
       "title": "popular",
       "thumbnail": "/avatars/avatar1.png",
       "source": "local",
@@ -62,7 +89,7 @@
       "channel": "Local Library"
     },
     {
-      "videoId": "loc_7_1766068148383",
+      "videoId": "loc_7_1766069771951",
       "title": "Sex appeal",
       "thumbnail": "/avatars/avatar1.png",
       "source": "local",
@@ -70,7 +97,7 @@
       "channel": "Local Library"
     },
     {
-      "videoId": "loc_8_1766068148383",
+      "videoId": "loc_8_1766069771951",
       "title": "SUMMC remix de salopard",
       "thumbnail": "/avatars/avatar1.png",
       "source": "local",
@@ -78,7 +105,7 @@
       "channel": "Local Library"
     },
     {
-      "videoId": "loc_9_1766068148383",
+      "videoId": "loc_9_1766069771951",
       "title": "The driver remix de salopard",
       "thumbnail": "/avatars/avatar1.png",
       "source": "local",
@@ -86,7 +113,7 @@
       "channel": "Local Library"
     },
     {
-      "videoId": "loc_10_1766068148383",
+      "videoId": "loc_10_1766069771951",
       "title": "Toc maureen",
       "thumbnail": "/avatars/avatar1.png",
       "source": "local",
@@ -94,7 +121,7 @@
       "channel": "Local Library"
     },
     {
-      "videoId": "loc_11_1766068148383",
+      "videoId": "loc_11_1766069771951",
       "title": "Trois cafe gourmaands",
       "thumbnail": "/avatars/avatar1.png",
       "source": "local",
