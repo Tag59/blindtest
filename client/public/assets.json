@@ -1,0 +1,105 @@
+{
+  "avatars": [
+    "/avatars/alicia.jpg",
+    "/avatars/bob.jpg",
+    "/avatars/theodora.jpg"
+  ],
+  "songs": [
+    {
+      "videoId": "loc_0_1766068148383",
+      "title": "Alicia witt remix de salopard en feat avec Artemas et ARTR",
+      "thumbnail": "/avatars/avatar1.png",
+      "source": "local",
+      "url": "/songs/Alicia witt remix de salopard en feat avec Artemas et ARTR.mp3",
+      "channel": "Local Library"
+    },
+    {
+      "videoId": "loc_1_1766068148383",
+      "title": "In the end",
+      "thumbnail": "/avatars/avatar1.png",
+      "source": "local",
+      "url": "/songs/In the end.mp3",
+      "channel": "Local Library"
+    },
+    {
+      "videoId": "loc_2_1766068148383",
+      "title": "LAMANO remix de salopard",
+      "thumbnail": "/avatars/avatar1.png",
+      "source": "local",
+      "url": "/songs/LAMANO remix de salopard.mp3",
+      "channel": "Local Library"
+    },
+    {
+      "videoId": "loc_3_1766068148383",
+      "title": "Linkin park n1",
+      "thumbnail": "/avatars/avatar1.png",
+      "source": "local",
+      "url": "/songs/Linkin park n1.mp3",
+      "channel": "Local Library"
+    },
+    {
+      "videoId": "loc_4_1766068148383",
+      "title": "linkin park",
+      "thumbnail": "/avatars/avatar1.png",
+      "source": "local",
+      "url": "/songs/linkin park.mp3",
+      "channel": "Local Library"
+    },
+    {
+      "videoId": "loc_5_1766068148383",
+      "title": "Miskine remix de salopard",
+      "thumbnail": "/avatars/avatar1.png",
+      "source": "local",
+      "url": "/songs/Miskine remix de salopard.mp3",
+      "channel": "Local Library"
+    },
+    {
+      "videoId": "loc_6_1766068148383",
+      "title": "popular",
+      "thumbnail": "/avatars/avatar1.png",
+      "source": "local",
+      "url": "/songs/popular.mp3",
+      "channel": "Local Library"
+    },
+    {
+      "videoId": "loc_7_1766068148383",
+      "title": "Sex appeal",
+      "thumbnail": "/avatars/avatar1.png",
+      "source": "local",
+      "url": "/songs/Sex appeal.mp3",
+      "channel": "Local Library"
+    },
+    {
+      "videoId": "loc_8_1766068148383",
+      "title": "SUMMC remix de salopard",
+      "thumbnail": "/avatars/avatar1.png",
+      "source": "local",
+      "url": "/songs/SUMMC remix de salopard.mp3",
+      "channel": "Local Library"
+    },
+    {
+      "videoId": "loc_9_1766068148383",
+      "title": "The driver remix de salopard",
+      "thumbnail": "/avatars/avatar1.png",
+      "source": "local",
+      "url": "/songs/The driver remix de salopard.mp3",
+      "channel": "Local Library"
+    },
+    {
+      "videoId": "loc_10_1766068148383",
+      "title": "Toc maureen",
+      "thumbnail": "/avatars/avatar1.png",
+      "source": "local",
+      "url": "/songs/Toc maureen.mp3",
+      "channel": "Local Library"
+    },
+    {
+      "videoId": "loc_11_1766068148383",
+      "title": "Trois cafe gourmaands",
+      "thumbnail": "/avatars/avatar1.png",
+      "source": "local",
+      "url": "/songs/Trois cafe gourmaands.mp3",
+      "channel": "Local Library"
+    }
+  ]
+}

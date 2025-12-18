@@ -18,14 +18,12 @@ const io = new Server(server, {
 });
 
 const rooms = {}; 
-// NOUVEAU : Objet pour stocker les comptes à rebours de suppression
 const cleanupTimeouts = {}; 
-
 let roundTimeout = null;
 const ROUND_DURATION = 30;
 let roundStartTime = 0;
 
-// --- UTILS ---
+// UTILS
 function cleanString(str) {
     if (!str) return "";
     let decoded = he.decode(str);
@@ -46,10 +44,9 @@ function isGoodAnswer(userInput, youtubeTitle) {
     return matches.bestMatch.rating > 0.75; 
 }
 
-// --- GAME LOGIC ---
+// GAME LOGIC
 function playNextSong(roomName) {
     const room = rooms[roomName];
-    // Sécurité : Si la salle a été supprimée entre temps
     if (!room || room.playlist.length === 0) return;
 
     if (room.currentSongIndex >= room.playlist.length) {
@@ -93,7 +90,7 @@ function endRound(roomName) {
     setTimeout(() => { playNextSong(roomName); }, 8000);
 }
 
-// --- API ---
+// API SEARCH
 app.get('/api/search', async (req, res) => {
   const query = req.query.q;
   if (!query) return res.status(400).json({ error: "Vide" });
@@ -111,16 +108,15 @@ app.get('/api/search', async (req, res) => {
   } catch (error) { console.error(error); res.status(500).json({ error: "Erreur" }); }
 });
 
-// --- SOCKETS ---
+// SOCKETS
 io.on('connection', (socket) => {
   
+  // 🔴 IMPORTANT : On récupère 'avatarUrl' ici
   socket.on('join_room', (data) => {
-    const { room, username, userId } = data;
+    const { room, username, userId, avatarUrl } = data; 
     socket.join(room);
 
-    // NOUVEAU : Si la salle était marquée pour suppression, on ANNULE la suppression car quelqu'un est entré
     if (cleanupTimeouts[room]) {
-        console.log(`✅ Annulation suppression salle ${room} (Joueur reconnecté)`);
         clearTimeout(cleanupTimeouts[room]);
         delete cleanupTimeouts[room];
     }
@@ -132,13 +128,23 @@ io.on('connection', (socket) => {
     const existingPlayer = rooms[room].players.find(p => p.userId === userId);
 
     if (existingPlayer) {
+        // C'est une reconnexion
         existingPlayer.id = socket.id;
-        existingPlayer.username = username; 
+        existingPlayer.username = username;
+        
+        // 🔴 CRUCIAL : Si le joueur envoie un nouvel avatar, on met à jour !
+        // Si avatarUrl est vide (bug), on garde l'ancien s'il existe.
+        if (avatarUrl && avatarUrl.length > 0) {
+            existingPlayer.avatarUrl = avatarUrl;
+        }
     } else {
+        // Nouveau joueur
         rooms[room].players.push({ 
             id: socket.id, 
             userId: userId, 
             username: username || "Anonyme", 
+            // 🔴 CRUCIAL : On stocke l'avatar dès la création
+            avatarUrl: avatarUrl || "", 
             score: 0, 
             roundScore: 0 
         });
@@ -156,11 +162,7 @@ io.on('connection', (socket) => {
       const player = room?.players.find(p => p.id === socket.id);
       if (room && room.status === 'PREP' && player) {
           room.playlist.push({ videoId: data.videoId, title: data.title, ownerId: player.userId });
-          io.to(data.room).emit('room_state_update', {
-            players: room.players,
-            status: room.status,
-            playlistSize: room.playlist.length
-        });
+          io.to(data.room).emit('room_state_update', { players: room.players, status: room.status, playlistSize: room.playlist.length });
       }
   });
 
@@ -182,8 +184,7 @@ io.on('connection', (socket) => {
 
     const currentSong = room.playlist[room.currentSongIndex];
     const player = room.players.find(p => p.id === socket.id);
-    
-    if (!player) return; // Sécurité si joueur déco
+    if (!player) return;
     
     if (player.userId === currentSong.ownerId || player.roundScore > 0) return; 
 
@@ -199,7 +200,6 @@ io.on('connection', (socket) => {
         const guessers = room.players.filter(p => p.userId !== currentSong.ownerId);
         const allFound = guessers.every(p => p.roundScore > 0);
         if (allFound) endRound(data.room);
-
     } else {
         io.to(data.room).emit('chat_message', { type: 'user', username: player.username, text: data.guess });
     }
@@ -217,28 +217,17 @@ io.on('connection', (socket) => {
       }
   });
 
-  // --- NOUVEAU : GESTION DE LA DÉCONNEXION ---
   socket.on('disconnect', () => {
-    // On doit parcourir toutes les salles pour voir d'où vient le socket qui part
     for (const roomName in rooms) {
         const room = rooms[roomName];
-        const isPlayerInRoom = room.players.find(p => p.id === socket.id);
-
-        if (isPlayerInRoom) {
-            // On regarde combien de sockets sont encore connectés dans cette salle
-            // io.sockets.adapter.rooms.get(roomName) retourne un Set de socketIds
+        if (room.players.find(p => p.id === socket.id)) {
             const connectedSockets = io.sockets.adapter.rooms.get(roomName);
-
-            // S'il n'y a plus personne (taille 0 ou undefined)
             if (!connectedSockets || connectedSockets.size === 0) {
-                console.log(`⚠️ Salle ${roomName} vide. Suppression programmée dans 2 min...`);
-                
-                // On programme la suppression dans 2 minutes
+                console.log(`⚠️ Salle ${roomName} vide. Suppression dans 2 min...`);
                 cleanupTimeouts[roomName] = setTimeout(() => {
-                    console.log(`❌ Suppression définitive de la salle ${roomName}`);
                     delete rooms[roomName];
                     delete cleanupTimeouts[roomName];
-                }, 2 * 60 * 1000); // 2 minutes
+                }, 2 * 60 * 1000);
             }
         }
     }
